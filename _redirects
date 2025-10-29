@@ -1,0 +1,7 @@
+# Redirect per QR Code
+# Sostituisci l'URL qui sotto con la destinazione che preferisci
+/qr    https://www.instagram.com/tuo_profilo    302
+
+# Altri redirect che potresti voler aggiungere in futuro:
+# /contatti    https://wa.me/393123456789    302
+# /booking     https://calendly.com/tuo-account    302
