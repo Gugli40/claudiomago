@@ -385,43 +385,23 @@
             }
         }
 
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            background: #d4af37;
-            border: none;
-            color: #0a0a0a;
-            font-size: 1.5rem;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            border-radius: 10px;
-            position: absolute;
-            right: 2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 101;
-        }
-
+        /* Mobile Navigation - Horizontal Tabs */
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
+            nav {
+                padding: 0.8rem 0;
             }
 
             nav ul {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                height: 100vh;
-                width: 70%;
-                background: rgba(0, 0, 0, 0.98);
-                flex-direction: column;
-                padding: 5rem 2rem;
-                transition: right 0.3s ease;
-                border-left: 2px solid #d4af37;
+                gap: 1rem;
+                padding: 0 1rem;
+                justify-content: center; /* Centra i tab */
+                flex-wrap: wrap; /* Permette di andare a capo se necessario */
             }
 
-            nav ul.active {
-                right: 0;
+            nav a {
+                font-size: 1rem;
+                padding: 0.7rem 1.5rem;
+                white-space: nowrap;
             }
 
             .whatsapp-float {
@@ -486,70 +466,6 @@
             z-index: 9999;
             opacity: 0;
             box-shadow: 0 0 10px #d4af37;
-        }
-
-        /* ============================================
-           IMMAGINI E GALLERY
-           ============================================ */
-        
-        /* Gallery Grid */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 2px solid #d4af37;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            padding: 1.5rem;
-            transform: translateY(100%);
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
-        }
-
-        .gallery-overlay h3 {
-            color: #d4af37;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .gallery-overlay p {
-            color: white;
-            font-size: 0.9rem;
         }
 
         /* ============================================
@@ -680,53 +596,7 @@
             border-radius: 10px;
         }
 
-        /* Photo Carousel */
-        .photo-carousel {
-            position: relative;
-            max-width: 800px;
-            margin: 2rem auto;
-            aspect-ratio: 16/9;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 3px solid #d4af37;
-            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
-        }
-
-        .photo-carousel-track {
-            display: flex;
-            height: 100%;
-            transition: transform 0.5s ease;
-        }
-
-        .photo-slide {
-            min-width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
-        .photo-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .photo-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            padding: 2rem;
-            color: white;
-        }
-
-        .photo-caption h3 {
-            color: #d4af37;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Image Placeholder (per immagini di esempio) */
+        /* Image Placeholder (per immagini testimonial) */
         .img-placeholder {
             width: 100%;
             height: 100%;
@@ -740,9 +610,6 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
 
             .testimonial-card {
                 padding: 2rem;
@@ -789,11 +656,9 @@
 
     <!-- Navigation -->
     <nav>
-        <button class="menu-toggle" id="menuToggle">☰</button>
         <ul id="navMenu">
             <li><a href="#chi-sono">Chi Sono</a></li>
-            <li><a href="#servizi">Servizi</a></li>
-            <li><a href="#spettacoli">Spettacoli</a></li>
+            <li><a href="#servizi">I Miei Servizi</a></li>
             <li><a href="#contatti">Contatti</a></li>
         </ul>
     </nav>
@@ -815,57 +680,6 @@
                 Ogni spettacolo è un viaggio nell'impossibile, dove la realtà si confonde con l'illusione e ogni momento 
                 diventa un'esperienza magica da ricordare.
             </p>
-        </section>
-
-        <!-- Gallery Section -->
-        <section id="gallery">
-            <h2>📸 Galleria Fotografica</h2>
-            <p style="text-align: center;">Alcuni momenti magici catturati durante i miei spettacoli</p>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="img-placeholder">🎩</div>
-                    <div class="gallery-overlay">
-                        <h3>Close-Up Magic</h3>
-                        <p>Magia ravvicinata durante un evento aziendale</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="img-placeholder">🎭</div>
-                    <div class="gallery-overlay">
-                        <h3>Teatro dell'Illusione</h3>
-                        <p>Grande spettacolo al Teatro Nazionale</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="img-placeholder">💍</div>
-                    <div class="gallery-overlay">
-                        <h3>Matrimonio da Sogno</h3>
-                        <p>Performance esclusiva per gli sposi</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="img-placeholder">🎪</div>
-                    <div class="gallery-overlay">
-                        <h3>Grande Illusione</h3>
-                        <p>Levitazione spettacolare</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="img-placeholder">✨</div>
-                    <div class="gallery-overlay">
-                        <h3>Mentalismo</h3>
-                        <p>Lettura del pensiero in diretta</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="img-placeholder">🎉</div>
-                    <div class="gallery-overlay">
-                        <h3>Festa Privata</h3>
-                        <p>Intrattenimento per bambini e adulti</p>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- Testimonials Carousel -->
@@ -949,59 +763,6 @@
             </div>
         </section>
 
-        <!-- Photo Carousel -->
-        <section>
-            <h2>🎬 Momenti Indimenticabili</h2>
-            <p style="text-align: center;">Scorri tra le foto degli spettacoli più emozionanti</p>
-            
-            <div class="photo-carousel">
-                <div class="photo-carousel-track" id="photoCarousel">
-                    <div class="photo-slide">
-                        <div class="img-placeholder" style="font-size: 5rem;">🎩✨</div>
-                        <div class="photo-caption">
-                            <h3>Spettacolo al Teatro</h3>
-                            <p>Una serata magica davanti a 500 spettatori</p>
-                        </div>
-                    </div>
-                    <div class="photo-slide">
-                        <div class="img-placeholder" style="font-size: 5rem;">💍🎊</div>
-                        <div class="photo-caption">
-                            <h3>Matrimonio da Favola</h3>
-                            <p>Il giorno più bello reso ancora più magico</p>
-                        </div>
-                    </div>
-                    <div class="photo-slide">
-                        <div class="img-placeholder" style="font-size: 5rem;">🎭🌟</div>
-                        <div class="photo-caption">
-                            <h3>Grande Illusione</h3>
-                            <p>La levitazione che ha stupito tutti</p>
-                        </div>
-                    </div>
-                    <div class="photo-slide">
-                        <div class="img-placeholder" style="font-size: 5rem;">🎪🔮</div>
-                        <div class="photo-caption">
-                            <h3>Mentalismo Live</h3>
-                            <p>Lettura del pensiero in diretta TV</p>
-                        </div>
-                    </div>
-                    <div class="photo-slide">
-                        <div class="img-placeholder" style="font-size: 5rem;">🎉✨</div>
-                        <div class="photo-caption">
-                            <h3>Evento Aziendale</h3>
-                            <p>300 persone incantate dalla close-up magic</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="carousel-controls">
-                    <button class="carousel-btn" onclick="moveCarousel('photo', -1)" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%);">‹</button>
-                    <button class="carousel-btn" onclick="moveCarousel('photo', 1)" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%);">›</button>
-                </div>
-            </div>
-            
-            <div class="carousel-indicators" id="photoIndicators"></div>
-        </section>
-
         <!-- Services Section -->
         <section id="servizi">
             <h2>I Miei Servizi</h2>
@@ -1030,28 +791,6 @@
                     <h3>✨ Magia Mentalista</h3>
                     <p>Lettura del pensiero e illusioni psicologiche che sfidano la logica.</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Shows Section -->
-        <section id="spettacoli">
-            <h2>Spettacoli Disponibili</h2>
-            <p>
-                Ogni performance è studiata nei minimi dettagli per adattarsi perfettamente al tuo evento. 
-                Che tu stia organizzando un'elegante cena di gala, un matrimonio da sogno o un evento aziendale, 
-                ho lo spettacolo giusto per te.
-            </p>
-            <p>
-                I miei numeri includono classici della magia reinterpretati in chiave moderna, illusioni originali 
-                create appositamente per stupire, e momenti di interazione con il pubblico che rendono ogni spettacolo 
-                unico e irripetibile.
-            </p>
-            <p>
-                Dalla magia di carte alla grande illusione, dal mentalismo alle levitazioni, ogni elemento è curato 
-                per creare un'esperienza indimenticabile che i tuoi ospiti ricorderanno per sempre.
-            </p>
-            <div style="text-align: center;">
-                <a href="#contatti" class="cta-button">Richiedi uno Spettacolo</a>
             </div>
         </section>
 
@@ -1099,35 +838,7 @@
     <!-- JavaScript -->
     <script>
         // ============================================
-        // 1. MOBILE MENU TOGGLE
-        // ============================================
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
-        
-        // Quando clicchi sul pulsante hamburger
-        menuToggle.addEventListener('click', function() {
-            // Toggle = attiva/disattiva la classe 'active'
-            navMenu.classList.toggle('active');
-            
-            // Cambia icona: hamburger ☰ o X ✕
-            if (navMenu.classList.contains('active')) {
-                menuToggle.textContent = '✕';
-            } else {
-                menuToggle.textContent = '☰';
-            }
-        });
-
-        // Chiudi menu quando clicchi su un link
-        const navLinks = document.querySelectorAll('nav a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navMenu.classList.remove('active');
-                menuToggle.textContent = '☰';
-            });
-        });
-
-        // ============================================
-        // 2. SMOOTH SCROLL (Scorrimento fluido)
+        // 1. SMOOTH SCROLL (Scorrimento fluido)
         // ============================================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -1148,7 +859,7 @@
         });
 
         // ============================================
-        // 3. SCROLL TO TOP BUTTON
+        // 2. SCROLL TO TOP BUTTON
         // ============================================
         const scrollTopBtn = document.getElementById('scrollTop');
         
@@ -1170,7 +881,7 @@
         });
 
         // ============================================
-        // 4. FADE-IN ANIMATIONS (Animazioni scroll)
+        // 3. FADE-IN ANIMATIONS (Animazioni scroll)
         // ============================================
         // Aggiungi classe fade-in a tutte le sezioni
         const sections = document.querySelectorAll('section');
@@ -1215,7 +926,7 @@
         checkVisibility(); // Esegui subito
 
         // ============================================
-        // 5. MAGIC PARTICLES EFFECT
+        // 4. MAGIC PARTICLES EFFECT
         // ============================================
         // Crea particelle magiche al click ovunque
         document.addEventListener('click', function(e) {
@@ -1258,7 +969,7 @@
         }
 
         // ============================================
-        // 6. PARALLAX EFFECT (Effetto parallasse)
+        // 5. PARALLAX EFFECT (Effetto parallasse)
         // ============================================
         const decorativeCircles = document.querySelectorAll('.decorative-circles');
         
@@ -1273,7 +984,7 @@
         });
 
         // ============================================
-        // 7. HEADER ANIMATION ON LOAD
+        // 6. HEADER ANIMATION ON LOAD
         // ============================================
         window.addEventListener('load', function() {
             const logo = document.querySelector('.logo h1');
@@ -1298,7 +1009,7 @@
         });
 
         // ============================================
-        // 8. SERVICE CARDS HOVER EFFECT
+        // 7. SERVICE CARDS HOVER EFFECT
         // ============================================
         const serviceCards = document.querySelectorAll('.service-card');
         
@@ -1318,21 +1029,15 @@
                     'font-size: 14px; color: #c0c0c0;');
 
         // ============================================
-        // 9. CAROUSEL FUNCTIONALITY
+        // 8. CAROUSEL FUNCTIONALITY
         // ============================================
         
-        // Oggetto per gestire i caroselli
+        // Oggetto per gestire il carosello testimonial
         const carousels = {
             testimonials: {
                 element: document.getElementById('testimonialsCarousel'),
                 currentIndex: 0,
                 totalSlides: 4,
-                autoPlayInterval: null
-            },
-            photo: {
-                element: document.getElementById('photoCarousel'),
-                currentIndex: 0,
-                totalSlides: 5,
                 autoPlayInterval: null
             }
         };
@@ -1499,19 +1204,15 @@
         window.addEventListener('load', function() {
             // Inizializza indicatori
             initializeIndicators('testimonials');
-            initializeIndicators('photo');
             
             // Avvia auto-play
             startAutoPlay('testimonials', 6000); // Cambia ogni 6 secondi
-            startAutoPlay('photo', 4000); // Cambia ogni 4 secondi
             
             // Setup pause on hover
             setupCarouselHoverPause('testimonials');
-            setupCarouselHoverPause('photo');
             
             // Setup touch support
             setupTouchSupport('testimonials');
-            setupTouchSupport('photo');
             
             // Setup keyboard
             setupKeyboardSupport();
