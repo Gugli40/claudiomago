@@ -1,6 +1,6 @@
 # Redirect per QR Code
 # Sostituisci l'URL qui sotto con la destinazione che preferisci
-/qr    https://www.instagram.com/tuo_profilo    302
+/qr    https://www.instagram.com/clau_dioporzio   302
 
 # Altri redirect che potresti voler aggiungere in futuro:
 # /contatti    https://wa.me/393123456789    302
